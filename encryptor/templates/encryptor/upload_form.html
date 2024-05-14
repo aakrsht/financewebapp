@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Encryptor</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/encryptor.css' %}">
+</head>
+<body>
+<div class="container">
+    <header class="header">
+        <h1>Data Encryptor</h1>
+        <p>Use this tool to encrypt your data. Drag and drop the required files and click encrypt.</p>
+    </header>
+    <form method="post" enctype="multipart/form-data" id="encryptionForm" class="encryption-form">
+        {% csrf_token %}
+        <div class="file-upload-container">
+            <div class="file-upload" id="csvUpload">
+                <input type="file" id="csv_file" name="csv_file" hidden required>
+                <label for="csv_file">Drag and Drop the CSV file</label>
+            </div>
+            <div class="file-upload" id="aesUpload">
+                <input type="file" id="aes_key_file" name="aes_key_file" hidden required>
+                <label for="aes_key_file">Drag and Drop the AES key</label>
+            </div>
+        </div>
+        <button type="submit" class="cta-button">Encrypt</button>
+    </form>
+    {% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+                <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+
+    <div class="loader-container">
+        <div class="loader" style="display: none"></div>
+    </div>
+</div>
+
+<script src="{% static 'js/encryptor.js' %}"></script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project - Making Data Collection in Finance Secure</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+<div class="container">
+    <header class="header">
+        <h1>&lt;Project&gt;</h1>
+        <h1>Making Data Collection in Finance Secure</h1>
+    </header>
+    <section class="intro">
+        <p>This project aims to enhance the security of data collection in the finance sector by providing tools for
+            data encryption and analysis, ensuring data privacy and integrity.</p>
+    </section>
+    <div class="tool-container">
+        <section class="tool" id="encryptor">
+            <h2>Encryptor Tool</h2>
+            <p>Securely encrypt your financial data with cutting-edge cryptography, preparing it for safe storage or
+                analysis.</p>
+            <a href="{% url 'encryptor:encryptor' %}" class="cta-button">Use Encryptor Tool</a>
+        </section>
+        <section class="tool" id="analysis">
+            <h2>Analysis Tool</h2>
+            <p>Analyze encrypted financial data without compromising its security, maintaining privacy while gaining
+                insights.</p>
+            <a href="{% url 'analysis:file_upload' %}" class="cta-button">Use Analysis Tool</a>
+        </section>
+    </div>
+</div>
+</body>
+</html>

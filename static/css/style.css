@@ -1,0 +1,89 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Consolas', 'Monaco', 'Lucida Console', monospace;
+    background-color: #121212;
+    color: #eeeeee;
+    font-size: 18px; /* Increased font size */
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.header {
+    text-align: center;
+    width: 100%;
+}
+
+.header h1 {
+    color: #4db8ff;
+    font-size: 2.5em; /* Makes the title larger */
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    padding: 0.5em; /* Adds some padding around the title */
+    border: none; /* Optional: removes any border if present */
+    text-align: center; /* Centers the title text */
+}
+
+.intro {
+    margin-bottom: 20px;
+    text-align: center; /* Center intro text */
+}
+
+.tool-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap; /* Allows tools to stack on smaller screens */
+    width: 100%;
+}
+
+.tool {
+    background-color: #1e1e1e;
+    padding: 20px;
+    border-radius: 10px;
+    margin: 10px;
+    flex: 1; /* Makes the boxes flexible in size but equal */
+    display: flex;
+    flex-direction: column; /* Stacks the content vertically */
+    justify-content: space-between; /* Distributes space around items */
+    min-width: 300px; /* Ensures wrapping on smaller screens */
+}
+
+.tool h2 {
+    color: #66ccff;
+    margin-top: 0; /* Removes top margin for the title */
+}
+
+.cta-button {
+    display: block;
+    background-color: #4db8ff;
+    color: #121212;
+    padding: 15px 30px; /* Increased padding for a larger button */
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    margin-top: 10px;
+    transition: background-color 0.3s;
+}
+
+.cta-button:hover {
+    background-color: #66ccff;
+}
+
+@media (max-width: 768px) {
+    .tool-container {
+        flex-direction: column;
+    }
+
+    .tool {
+        width: 100%; /* Full width on smaller screens */
+        margin-bottom: 20px; /* Adds space between the stacked items */
+    }
+}

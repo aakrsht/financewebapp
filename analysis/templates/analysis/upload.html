@@ -1,0 +1,51 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Upload Files</title>
+    <link rel="stylesheet" href="{% static 'css/analysis.css' %}">  <!-- Adjust the path as needed -->
+</head>
+<body>
+<div class="header-container">
+    <h1>Data Analysis</h1>
+    <p>Drag and Drop the required files to analyse the encrypted data.</p>
+</div>
+
+<div class="button-container">
+    <form method="post" enctype="multipart/form-data" action="{% url 'analysis:file_upload' %}" id="fileUploadForm">
+        {% csrf_token %}
+        <div class="file-upload-container">
+            <div class="drag-area" id="aesKeyUpload">
+                <input type="file" id="aes_key_file" name="aes_key" hidden required>
+                <label for="aes_key_file">Drag and Drop the AES key</label>
+            </div>
+            <div class="drag-area" id="encryptedDataUpload">
+                <input type="file" id="encrypted_data_file" name="encrypted_data" hidden required>
+                <label for="encrypted_data_file">Drag and Drop the Encrypted data file</label>
+            </div>
+            <div class="drag-area" id="contextUpload">
+                <input type="file" id="context_file" name="context_file" hidden required>
+                <label for="context_file">Drag and Drop the Context file</label>
+            </div>
+
+        </div>
+       
+        {% if form.errors %}
+            <div class="form-errors">
+                {% for field in form %}
+                    {% for error in field.errors %}
+                        <p>Error in {{ field.label }}: {{ error }}</p>
+                    {% endfor %}
+                {% endfor %}
+            </div>
+        {% endif %}
+
+        <div class="button-container">
+            <button type="submit" class="cta-button">Upload</button>
+        </div>
+
+    </form>
+</div>
+<script src="{% static 'js/analysis.js' %}"></script>
+</body>
+</html>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Encryptor - Download</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/encryptor.css' %}">
+</head>
+<body>
+<div class="container">
+    <header class="header">
+        <h1>Data Encryptor</h1>
+        <p>Your file has been encrypted successfully. You can download it now.</p>
+    </header>
+    <div class="download-container">
+        <a href="{{ download_url }}" class="cta-button">Download Encrypted File</a>
+        <a href="{% url 'home' %}" class="cta-button">Return to Home</a>
+    </div>
+</div>
+</body>
+</html>
